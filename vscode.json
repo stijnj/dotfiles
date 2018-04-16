@@ -1,0 +1,15 @@
+{
+    "workbench.colorTheme": "Cobalt2",
+    "editor.fontFamily": "'Fira Code', Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    }
+}
