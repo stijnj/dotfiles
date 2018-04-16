@@ -19,6 +19,9 @@ if ! command -v zsh &> /dev/null; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
+# NPM
+npm install -g grunt-cli
+
 # Link VSCode settings
 rm ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/dotfiles/vscode.json ~/Library/Application\ Support/Code/User/settings.json

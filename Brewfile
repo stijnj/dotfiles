@@ -9,7 +9,10 @@ cask 'skype-for-business'
 
 # Developer specfic applications
 cask 'visual-studio-code'
+cask 'webstorm'
 cask 'docker'
+brew 'node'
+brew 'npm'
 
 # Personal stuff
 cask '1password'
