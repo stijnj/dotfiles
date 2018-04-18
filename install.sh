@@ -22,6 +22,9 @@ fi
 # NPM
 npm install -g grunt-cli
 
+# git credentials
+git-credential-manager install
+
 # Link VSCode settings
 rm ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/dotfiles/vscode.json ~/Library/Application\ Support/Code/User/settings.json

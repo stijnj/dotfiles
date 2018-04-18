@@ -8,11 +8,14 @@ cask 'microsoft-teams'
 cask 'skype-for-business'
 
 # Developer specfic applications
+cask 'java'
+brew 'git-credential-manager'
 cask 'visual-studio-code'
 cask 'webstorm'
 cask 'docker'
 brew 'node'
 brew 'npm'
+brew 'tree'
 
 # Personal stuff
 cask '1password'
