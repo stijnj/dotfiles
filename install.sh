@@ -31,9 +31,11 @@ ln -s ~/dotfiles/vscode.json ~/Library/Application\ Support/Code/User/settings.j
 
 # VSCode plugins
 code --install-extension wesbos.theme-cobalt2
-code --install-extension yzhang.markdown-all-in-one
+code --install-extension tinkertrain.theme-panda
 code --install-extension eamodio.gitlens
 code --install-extension PeterJausovec.vscode-docker
+code --install-extension be5invis.vscode-custom-css
+code --install-extension dbaeumer.vscode-eslint
 
 # MacOS settings
 source ./.macos;

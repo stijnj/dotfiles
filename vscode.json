@@ -1,7 +1,14 @@
 {
     "workbench.colorTheme": "Cobalt2",
     "editor.fontFamily": "'Fira Code', Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 24,
+    "editor.letterSpacing": 0.5,
     "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 5,
+    "editor.cursorBlinking": "solid",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -12,5 +19,13 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-    "gitlens.currentLine.enabled": false
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.currentLine.enabled": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": true,
+    "vscode_custom_css.imports": [
+        "file:///Users/sjanssen/dotfiles/.vscodestyles.css"
+    ],
 }

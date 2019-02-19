@@ -9,7 +9,6 @@ cask 'skype-for-business'
 
 # Developer specfic applications
 cask 'java'
-brew 'git-credential-manager'
 cask 'visual-studio-code'
 cask 'webstorm'
 cask 'docker'
