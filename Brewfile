@@ -4,8 +4,6 @@ tap 'caskroom/fonts'
 
 cask 'google-chrome'
 cask 'zoomus'
-cask 'microsoft-teams'
-cask 'skype-for-business'
 
 # Developer specfic applications
 cask 'java'

@@ -1,8 +1,8 @@
 {
-    "workbench.colorTheme": "Cobalt2",
+    "workbench.colorTheme": "Palenight Italic",
     "editor.fontFamily": "'Fira Code', Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.lineHeight": 24,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 21,
     "editor.letterSpacing": 0.5,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
