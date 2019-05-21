@@ -20,7 +20,9 @@ if ! command -v zsh &> /dev/null; then
 fi
 
 # NPM
-npm install -g grunt-cli
+npm i -g grunt-cli
+npm i -g typescript
+npm i -g ts-node
 
 # Link VSCode settings
 rm ~/Library/Application\ Support/Code/User/settings.json
@@ -34,6 +36,7 @@ code --install-extension eamodio.gitlens
 code --install-extension PeterJausovec.vscode-docker
 code --install-extension be5invis.vscode-custom-css
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension formulahendry.code-runner
 
 # MacOS settings
 source ./.macos;
