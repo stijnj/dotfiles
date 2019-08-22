@@ -37,6 +37,7 @@ code --install-extension PeterJausovec.vscode-docker
 code --install-extension be5invis.vscode-custom-css
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension formulahendry.code-runner
+code --install-extension liviuschera.noctis
 
 # MacOS settings
 source ./.macos;

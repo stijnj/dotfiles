@@ -7,6 +7,7 @@ cask 'zoomus'
 
 # Developer specfic applications
 cask 'java'
+brew 'kotlin'
 cask 'visual-studio-code'
 cask 'webstorm'
 cask 'docker'

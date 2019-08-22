@@ -12,7 +12,8 @@ module.exports = {
     },
 
     plugins: [
-        'hyperterm-material-palenight'
+        // 'hyperterm-material-palenight'
+        'hyperterm-cobalt2-theme'
     ],
 
     // in development, you can create a directory under

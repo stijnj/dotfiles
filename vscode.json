@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Palenight Italic",
+    "workbench.colorTheme": "Noctis Azureus",
     "editor.fontFamily": "'Fira Code', Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.lineHeight": 21,
@@ -7,7 +7,7 @@
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.cursorStyle": "line",
-    "editor.cursorWidth": 5,
+    "editor.cursorWidth": 3,
     "editor.cursorBlinking": "solid",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -31,5 +31,6 @@
     "code-runner.executorMap": {
         "javascript": "node",
         "typescript": "ts-node"
-    }
+    },
+    "window.zoomLevel": 0
 }
