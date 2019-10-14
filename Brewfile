@@ -19,6 +19,8 @@ brew 'tree'
 cask '1password'
 cask 'slack'
 cask 'hyper'
+cask 'pock'
 
 # Fonts
 cask 'font-fira-code'
+cask 'font-hasklig'
