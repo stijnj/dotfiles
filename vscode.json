@@ -1,6 +1,6 @@
 {
-    "workbench.colorTheme": "Noctis Lux",
-    "editor.fontFamily": "Hasklig, 'Fira Code', Monaco, 'Courier New', monospace",
+    "workbench.colorTheme": "Cobalt2",
+    "editor.fontFamily": "Operator Mono, Hasklig, 'Fira Code', Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.lineHeight": 21,
     "editor.letterSpacing": 0.5,
@@ -32,5 +32,7 @@
         "javascript": "node",
         "typescript": "ts-node"
     },
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "git.ignoreMissingGitWarning": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }
