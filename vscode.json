@@ -5,7 +5,7 @@
     "editor.lineHeight": 21,
     "editor.letterSpacing": 0.5,
     "editor.fontLigatures": true,
-    "editor.fontWeight": "400",
+    "editor.fontWeight": "200",
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
     "editor.cursorBlinking": "solid",
