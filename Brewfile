@@ -14,12 +14,13 @@ cask 'docker'
 brew 'node'
 brew 'npm'
 brew 'tree'
+brew 'httpie'
 
 # Personal stuff
 cask '1password'
 cask 'slack'
 cask 'hyper'
-cask 'pock'
+cask 'itscal'
 
 # Fonts
 cask 'font-fira-code'
