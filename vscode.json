@@ -1,14 +1,32 @@
 {
     "workbench.colorTheme": "Cobalt2",
-    "editor.fontFamily": "Operator Mono, Hasklig, 'Fira Code', Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 21,
-    "editor.letterSpacing": 0.5,
+    "editor.fontFamily": "'Victor Mono', Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 24,
+    "editor.letterSpacing": 1,
     "editor.fontLigatures": true,
-    "editor.fontWeight": "200",
+    "editor.fontWeight": "400",
     "editor.cursorStyle": "line",
     "editor.cursorWidth": 3,
     "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "none",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.folding": true,
+    "editor.occurrencesHighlight": false,
+    "editor.matchBrackets": "never",
+    "editor.glyphMargin": false,
+    "editor.formatOnSave": true,
+    "explorer.openEditors.visible": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.editor.showIcons": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.statusBar.visible": false,
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#0000",
+    },
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -25,16 +43,21 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.renderWhitespace": "all",
     "files.trimTrailingWhitespace": true,
-    "vscode_custom_css.imports": [
-        "file:///Users/sjanssen/dotfiles/.vscodestyles.css"
-    ],
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "typescript": "ts-node"
-    },
     "window.zoomLevel": 0,
     "git.ignoreMissingGitWarning": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "typescript.updateImportsOnFileMove.enabled": "never",
-    "problems.showCurrentInStatus": true
+    "problems.showCurrentInStatus": false,
+    "workbench.iconTheme": null,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "breadcrumbs.enabled": false,
+    "gitlens.menus": {
+        "editor": false,
+        "editorGroup": false,
+        "editorTab": false,
+        "explorer": false,
+        "scmGroup": false,
+        "scmItem": false
+    },
 }
