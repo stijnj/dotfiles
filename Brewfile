@@ -25,3 +25,4 @@ cask 'itscal'
 # Fonts
 cask 'font-fira-code'
 cask 'font-hasklig'
+cask 'font-victor-mono'
