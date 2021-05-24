@@ -1,13 +1,12 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-drivers'
 
 cask 'google-chrome'
 cask 'zoomus'
 
 # Developer specfic applications
-cask 'java'
-brew 'kotlin'
 cask 'visual-studio-code'
 cask 'webstorm'
 cask 'docker'
@@ -17,10 +16,13 @@ brew 'tree'
 brew 'httpie'
 
 # Personal stuff
+brew 'mas'
 cask '1password'
 cask 'slack'
 cask 'hyper'
-cask 'itscal'
+cask 'logitech-options'
+cask 'notion'
+cask 'alfred'
 
 # Fonts
 cask 'font-fira-code'
