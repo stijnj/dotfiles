@@ -3,7 +3,11 @@
 # Ask for the administrator password upfront
 sudo -v
 
-source bootstrap.sh;
+# Copy files to ~ folder
+cp .bash_profile ~/.bash_profile
+cp .gitconfig ~/.gitconfig
+cp .hyper.js ~/.hyper.js
+cp .zshrc ~/.zshrc
 
 # install homebrew
 if ! command -v brew &> /dev/null; then
@@ -20,7 +24,6 @@ if ! command -v zsh &> /dev/null; then
 fi
 
 # NPM
-npm i -g grunt-cli
 npm i -g typescript
 npm i -g ts-node
 
@@ -31,13 +34,9 @@ ln -s ~/dotfiles/vscode.json ~/Library/Application\ Support/Code/User/settings.j
 # VSCode plugins
 code --install-extension wesbos.theme-cobalt2
 code --install-extension tinkertrain.theme-panda
-code --install-extension whizkydee.material-palenight-theme
 code --install-extension eamodio.gitlens
-code --install-extension PeterJausovec.vscode-docker
 code --install-extension be5invis.vscode-custom-css
 code --install-extension dbaeumer.vscode-eslint
-code --install-extension formulahendry.code-runner
-code --install-extension liviuschera.noctis
 
 # MacOS settings
 source ./.macos;

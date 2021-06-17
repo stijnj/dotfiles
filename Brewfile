@@ -4,11 +4,10 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-drivers'
 
 cask 'google-chrome'
-cask 'zoomus'
+cask 'zoom'
 
 # Developer specfic applications
 cask 'visual-studio-code'
-cask 'webstorm'
 cask 'docker'
 brew 'node'
 brew 'npm'
@@ -23,9 +22,8 @@ cask 'hyper'
 cask 'logitech-options'
 cask 'notion'
 cask 'alfred'
+cask 'rectangle'
 
 # Fonts
 cask 'font-fira-code'
-cask 'font-hasklig'
 cask 'font-victor-mono'
-cask 'font-lato'

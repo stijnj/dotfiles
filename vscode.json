@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Cobalt2",
+    "workbench.colorTheme": "Panda Syntax",
     "editor.fontFamily": "'Victor Mono', Monaco, 'Courier New', monospace",
     "editor.fontSize": 16,
     "editor.lineHeight": 24,
@@ -18,7 +18,7 @@
     "editor.occurrencesHighlight": false,
     "editor.matchBrackets": "never",
     "editor.glyphMargin": false,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "explorer.openEditors.visible": 0,
     "workbench.activityBar.visible": false,
     "workbench.editor.showIcons": false,
@@ -33,12 +33,8 @@
         "suppressFileNotUnderSourceControlWarning": false,
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
+        "suppressNoRepositoryWarning": false
     },
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
     "gitlens.currentLine.enabled": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.renderWhitespace": "all",

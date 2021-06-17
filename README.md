@@ -5,7 +5,9 @@
 Clone this repository in your home folder.
 
 ```bash
-git clone https://github.com/stijnj/dotfiles.git && cd dotfiles && source install.sh
+git clone https://github.com/stijnj/dotfiles.git
+cd dotfiles
+source install.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
