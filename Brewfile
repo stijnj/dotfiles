@@ -14,6 +14,7 @@ brew 'npm'
 brew 'tree'
 brew 'httpie'
 brew 'starship'
+brew 'asdf'
 
 # Personal stuff
 brew 'mas'
