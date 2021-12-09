@@ -13,6 +13,7 @@ brew 'node'
 brew 'npm'
 brew 'tree'
 brew 'httpie'
+brew 'starship'
 
 # Personal stuff
 brew 'mas'
@@ -26,4 +27,6 @@ cask 'rectangle'
 
 # Fonts
 cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
 cask 'font-victor-mono'
+cask 'font-victor-mono-nerd-font'

@@ -17,24 +17,26 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+eval "$(starship init zsh)"
+
 # User configuration
 LS_COLORS="ow=01;36;40" && export LS_COLORS
 
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-   # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
+# prompt_context() {
+#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+#    # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+#   fi
+# }
 
-build_prompt_() {
-  RETVAL=$?
-  prompt_status
-  prompt_virtualenv
-  prompt_context
-  prompt_dir
-  prompt_end
-  #git-radar --zsh --fetch
-}
+# build_prompt_() {
+#   RETVAL=$?
+#   prompt_status
+#   prompt_virtualenv
+#   prompt_context
+#   prompt_dir
+#   prompt_end
+#   git-radar --zsh --fetch
+# }
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/sjanssen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/sjanssen/google-cloud-sdk/path.zsh.inc'; fi
