@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Panda Syntax",
-    "editor.fontFamily": "'Victor Mono', Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'VictorMono Nerd Font', monospace",
     "editor.fontSize": 16,
     "editor.lineHeight": 24,
     "editor.letterSpacing": 1,
@@ -10,15 +10,15 @@
     "editor.cursorWidth": 3,
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
-    "editor.renderIndentGuides": false,
     "editor.renderLineHighlight": "none",
     "editor.overviewRulerBorder": false,
     "editor.hideCursorInOverviewRuler": true,
     "editor.folding": true,
     "editor.occurrencesHighlight": false,
     "editor.matchBrackets": "never",
-    "editor.glyphMargin": false,
-    "editor.formatOnSave": false,
+    "editor.glyphMargin": true,
+    "editor.formatOnSave": true,
+    "debug.showBreakpointsInOverviewRuler": true,
     "explorer.openEditors.visible": 0,
     "workbench.activityBar.visible": false,
     "workbench.editor.showIcons": false,
@@ -37,11 +37,11 @@
     },
     "gitlens.currentLine.enabled": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "never",
     "editor.renderWhitespace": "all",
     "files.trimTrailingWhitespace": true,
     "git.ignoreMissingGitWarning": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "typescript.updateImportsOnFileMove.enabled": "never",
     "problems.showCurrentInStatus": false,
     "workbench.iconTheme": null,
     "gitlens.codeLens.enabled": false,
@@ -54,5 +54,20 @@
         "explorer": false,
         "scmGroup": false,
         "scmItem": false
-    }
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.run": "onType",
+    "git.suggestSmartCommit": false,
+    "git.confirmSync": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
