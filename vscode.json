@@ -39,7 +39,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.renderWhitespace": "all",
     "files.trimTrailingWhitespace": true,
-    "window.zoomLevel": 0,
     "git.ignoreMissingGitWarning": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "typescript.updateImportsOnFileMove.enabled": "never",

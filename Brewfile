@@ -15,6 +15,7 @@ brew 'tree'
 brew 'httpie'
 
 # Personal stuff
+brew 'displaylink'
 brew 'mas'
 cask '1password'
 cask 'slack'
@@ -23,6 +24,9 @@ cask 'logitech-options'
 cask 'notion'
 cask 'alfred'
 cask 'rectangle'
+
+# Adobe
+cask 'adobe-creative-cloud'
 
 # Fonts
 cask 'font-fira-code'
