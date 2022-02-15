@@ -2,7 +2,7 @@
     "workbench.colorTheme": "Panda Syntax",
     "editor.fontFamily": "'VictorMono Nerd Font', monospace",
     "editor.fontSize": 16,
-    "editor.lineHeight": 24,
+    "editor.lineHeight": 0,
     "editor.letterSpacing": 1,
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
@@ -71,4 +71,6 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "ruby.useLanguageServer": true,
+    "bracket-pair-colorizer-2.depreciation-notice": false
 }
