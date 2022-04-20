@@ -15,6 +15,7 @@ brew 'tree'
 brew 'httpie'
 brew 'starship'
 brew 'asdf'
+brew 'fig'
 
 # Personal stuff
 brew 'displaylink'
