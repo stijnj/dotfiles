@@ -1,75 +1,80 @@
 {
-    "workbench.colorTheme": "Panda Syntax",
-    "editor.fontFamily": "'VictorMono Nerd Font', monospace",
-    "editor.fontSize": 16,
-    "editor.lineHeight": 0,
-    "editor.letterSpacing": 1,
-    "editor.fontLigatures": true,
-    "editor.fontWeight": "400",
-    "editor.cursorStyle": "line",
-    "editor.cursorWidth": 3,
-    "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
-    "editor.renderLineHighlight": "none",
-    "editor.overviewRulerBorder": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.folding": true,
-    "editor.occurrencesHighlight": false,
-    "editor.matchBrackets": "never",
-    "editor.glyphMargin": true,
-    "editor.formatOnSave": true,
-    "debug.showBreakpointsInOverviewRuler": true,
-    "explorer.openEditors.visible": 0,
-    "workbench.activityBar.visible": false,
-    "workbench.editor.showIcons": false,
-    "workbench.editor.tabCloseButton": "off",
-    "workbench.statusBar.visible": false,
-    "workbench.colorCustomizations": {
-        "tab.activeBorder": "#0000"
-    },
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false
-    },
-    "gitlens.currentLine.enabled": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.updateImportsOnFileMove.enabled": "never",
-    "editor.renderWhitespace": "all",
-    "files.trimTrailingWhitespace": true,
-    "git.ignoreMissingGitWarning": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "problems.showCurrentInStatus": false,
-    "workbench.iconTheme": null,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.statusBar.enabled": false,
-    "breadcrumbs.enabled": false,
-    "gitlens.menus": {
-        "editor": false,
-        "editorGroup": false,
-        "editorTab": false,
-        "explorer": false,
-        "scmGroup": false,
-        "scmItem": false
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "eslint.run": "onType",
-    "git.suggestSmartCommit": false,
-    "git.confirmSync": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "ruby.useLanguageServer": true,
-    "bracket-pair-colorizer-2.depreciation-notice": false
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 3,
+  "editor.folding": true,
+  "editor.fontFamily": "'VictorMono Nerd Font', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.fontWeight": "400",
+  "editor.formatOnSave": true,
+  "editor.glyphMargin": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.letterSpacing": 1,
+  "editor.lineHeight": 0,
+  "editor.matchBrackets": "never",
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "eslint.run": "onType",
+  "explorer.openEditors.visible": 0,
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "git.ignoreMissingGitWarning": true,
+  "git.suggestSmartCommit": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.menus": {
+    "editor": false,
+    "editorGroup": false,
+    "editorTab": false,
+    "explorer": false,
+    "scmGroup": false,
+    "scmItem": false
+  },
+  "gitlens.statusBar.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "problems.showCurrentInStatus": false,
+  "ruby.useLanguageServer": true,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "workbench.activityBar.visible": false,
+  "workbench.colorCustomizations": {
+    "tab.activeBorder": "#0000"
+  },
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.editor.showIcons": false,
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.iconTheme": null,
+  "workbench.statusBar.visible": false
 }
