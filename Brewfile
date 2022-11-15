@@ -14,6 +14,7 @@ brew 'npm'
 brew 'tree'
 brew 'starship'
 brew 'asdf'
+brew 'fig'
 
 # Personal stuff
 brew 'displaylink'
@@ -35,3 +36,6 @@ cask 'font-fira-code'
 cask 'font-fira-code-nerd-font'
 cask 'font-victor-mono'
 cask 'font-victor-mono-nerd-font'
+
+# Mac App Store
+mas "Things", id: 904280696

@@ -9,5 +9,7 @@ eval "$(rbenv init -)"
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 eval "$(starship init zsh)"
