@@ -4,7 +4,7 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 14,
     windowSize: [1080, 720],
-    fontFamily: '"VictorMono Nerd Font Mono", "Comic Sans", monospace',
+    fontFamily: '"Iosevka Extended", "VictorMono Nerd Font Mono", "Comic Sans", monospace',
     cursorShape: "BLOCK",
     wickedBorder: false,
     padding: "10px",

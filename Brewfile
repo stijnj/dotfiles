@@ -28,7 +28,7 @@ cask 'notion'
 cask 'rectangle'
 
 # Fonts
-cask 'font-font-monaspace'
+cask 'font-font-iosevka'
 cask 'font-fira-code'
 cask 'font-fira-code-nerd-font'
 cask 'font-victor-mono'
