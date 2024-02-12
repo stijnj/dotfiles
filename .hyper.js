@@ -11,11 +11,13 @@ module.exports = {
     shell: "/bin/zsh",
     lineHeight: 1.2,
     letterSpacing: 1,
+    catppuccinTheme: 'Macchiato'
   },
 
   plugins: [
     // 'hyperterm-cobalt2-theme'
-    "hyperterm-panda",
+    // "hyperterm-panda",
+    'hypurr#latest'
   ],
 
   // in development, you can create a directory under

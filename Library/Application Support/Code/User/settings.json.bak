@@ -17,7 +17,7 @@
   "editor.lineHeight": 1.6,
   "editor.matchBrackets": "never",
   "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "all",
@@ -54,13 +54,13 @@
   },
   "workbench.editor.showIcons": false,
   "workbench.editor.tabCloseButton": "off",
-  "workbench.iconTheme": null,
+  "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "python.formatting.provider": "black",
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
@@ -69,5 +69,6 @@
   "editor.formatOnSave": true,
   "yaml.format.enable": false,
   "git.confirmSync": false,
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.tabActionCloseVisibility": false
 }

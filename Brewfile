@@ -14,7 +14,11 @@ brew 'npm'
 brew 'tree'
 brew 'asdf'
 brew 'fig'
+brew 'zsh'
+brew 'zsh-completions'
 brew 'powerlevel10k'
+brew 'stow'
+brew 'bat'
 
 # Personal stuff
 brew 'displaylink'
