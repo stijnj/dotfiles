@@ -13,7 +13,7 @@ variable, not by having two copies of a file.
 
 # 2. chezmoi + this repo. Asks three questions, then does everything else.
 brew install chezmoi
-chezmoi init --apply https://github.com/stijnj/dotfiles.git
+chezmoi init --source ~/dotfiles --apply https://github.com/stijnj/dotfiles.git
 ```
 
 The three questions:
@@ -61,7 +61,7 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
 
 | Path | What |
 |---|---|
-| `.chezmoi.toml.tmpl` | The three init prompts |
+| `.chezmoi.toml.tmpl` | The three init prompts, and `sourceDir` — this repo lives at `~/dotfiles`, not chezmoi's default `~/.local/share/chezmoi` |
 | `.chezmoitemplates/Brewfile` | Package list, rendered inline by the brew script — never written to `$HOME` |
 | `.chezmoiscripts/` | Homebrew, macOS defaults, VS Code extensions, the manual checklist |
 | `dot_zshrc.tmpl` | zsh + oh-my-zsh + starship |

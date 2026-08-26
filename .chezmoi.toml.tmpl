@@ -3,6 +3,9 @@
 {{- $workEmail := promptStringOnce . "workEmail" "Work git email" "stijn.janssen@cegeka.com" -}}
 {{- $personalEmail := promptStringOnce . "personalEmail" "Personal git email" "stijn@hexacode.be" -}}
 
+# This repo lives at ~/dotfiles, not chezmoi's default ~/.local/share/chezmoi.
+sourceDir = {{ (printf "%s/dotfiles" .chezmoi.homeDir) | quote }}
+
 [data]
     work = {{ $work }}
     workEmail = {{ $workEmail | quote }}
