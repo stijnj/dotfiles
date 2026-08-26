@@ -1,0 +1,19 @@
+#!/bin/bash
+# Installs Homebrew if missing, then applies the Brewfile.
+#
+# The Brewfile lives in .chezmoitemplates/Brewfile and is rendered inline below,
+# so it is never written into $HOME and `brew` never sees template syntax.
+# Because the rendered content is part of this script, chezmoi re-runs it
+# whenever the package list changes.
+set -euo pipefail
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "brew: installing Homebrew (will ask for your password)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+echo "brew: applying Brewfile"
+brew bundle --file=- <<'BREWFILE'
+{{ template "Brewfile" . }}
+BREWFILE

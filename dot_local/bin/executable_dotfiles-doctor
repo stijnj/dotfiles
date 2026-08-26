@@ -1,0 +1,85 @@
+#!/bin/bash
+# dotfiles-doctor — verifies the parts of this setup that a script cannot install.
+# Run after `chezmoi apply` on a new machine.
+
+pass=0; fail=0
+ok()   { printf '  \033[32m✓\033[0m %s\n' "$1"; pass=$((pass+1)); }
+bad()  { printf '  \033[31m✗\033[0m %s\n' "$1"; fail=$((fail+1)); }
+
+echo
+echo "Binaries"
+for b in chezmoi starship aerospace op brew git fnm pyenv; do
+  command -v "$b" >/dev/null 2>&1 && ok "$b on PATH" || bad "$b missing"
+done
+
+echo
+echo "Applications"
+[ -d "/Applications/Karabiner-Elements.app" ] && ok "Karabiner-Elements installed" \
+  || bad "Karabiner-Elements missing (brew install --cask karabiner-elements, needs sudo)"
+[ -d "/Applications/AeroSpace.app" ] && ok "AeroSpace installed" || bad "AeroSpace missing"
+[ -d "/Applications/Raycast.app" ] && ok "Raycast installed" || bad "Raycast missing"
+[ -d "/Applications/Ghostty.app" ] && ok "Ghostty installed" || bad "Ghostty missing"
+
+echo
+echo "Karabiner driver"
+if pgrep -qf 'Karabiner-VirtualHIDDevice-Daemon' 2>/dev/null; then
+  ok "virtual HID daemon running"
+else
+  bad "virtual HID daemon not running — approve the driver extension in"
+  echo "      System Settings > General > Login Items & Extensions > Driver Extensions"
+fi
+if [ -f "$HOME/.config/karabiner/karabiner.json" ] \
+   && grep -q 'Escape when tapped alone' "$HOME/.config/karabiner/karabiner.json" 2>/dev/null; then
+  ok "Caps Lock → Super rule present in karabiner.json"
+else
+  bad "Caps Lock → Super rule missing from karabiner.json"
+fi
+
+echo
+echo "AeroSpace"
+if pgrep -q AeroSpace 2>/dev/null; then
+  ok "AeroSpace running"
+  if aerospace list-workspaces --all >/dev/null 2>&1; then
+    ok "AeroSpace responding (Accessibility granted)"
+  else
+    bad "AeroSpace not responding — grant Accessibility in System Settings > Privacy & Security"
+  fi
+else
+  bad "AeroSpace not running"
+fi
+[ -f "$HOME/.aerospace.toml" ] && ok "~/.aerospace.toml present" || bad "~/.aerospace.toml missing"
+
+echo
+echo "1Password"
+if op account list >/dev/null 2>&1 && [ -n "$(op account list 2>/dev/null)" ]; then
+  ok "op signed in"
+else
+  bad "op not signed in — run: eval \$(op signin)"
+fi
+[ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ] \
+  && ok "1Password SSH agent socket present" || bad "1Password SSH agent socket missing"
+ssh-add -l >/dev/null 2>&1 && ok "SSH agent has keys" || bad "SSH agent has no keys"
+
+echo
+echo "Git"
+git config --get user.signingkey >/dev/null 2>&1 && ok "signing key configured" || bad "no signing key"
+if git config --get commit.gpgsign 2>/dev/null | grep -q true; then ok "commit signing on"; else bad "commit signing off"; fi
+
+echo
+echo "Homebrew bundle"
+if brew bundle check --file=<(chezmoi execute-template '{{ template "Brewfile" . }}') >/dev/null 2>&1; then
+  ok "Brewfile satisfied"
+else
+  bad "Brewfile not satisfied — run: chezmoi apply"
+fi
+
+echo
+echo "macOS settings AeroSpace depends on"
+[ "$(defaults read com.apple.dock mru-spaces 2>/dev/null)" = "0" ] \
+  && ok "Spaces do not rearrange (mru-spaces=false)" || bad "mru-spaces is not false"
+[ "$(defaults read com.apple.universalaccess reduceMotion 2>/dev/null)" = "1" ] \
+  && ok "Reduce Motion on" || bad "Reduce Motion off — Settings > Accessibility > Display"
+
+echo
+printf '  %d passed, %d failed\n\n' "$pass" "$fail"
+[ "$fail" -eq 0 ]

@@ -1,0 +1,117 @@
+# Brewfile — applied by .chezmoiscripts/run_onchange_before_10-homebrew.sh.tmpl
+#
+# Captured from this machine on 2026-08-26, plus what the adopted Omarchy
+# configs actually require. Work-only tooling is gated behind .work.
+
+tap "nikitabobko/tap"
+
+# ── Window manager, Super key, launcher (Omarchy core) ──────────────────────
+cask "nikitabobko/tap/aerospace"
+cask "karabiner-elements"            # needs a driver extension approved by hand
+cask "raycast"
+
+# ── Terminal + prompt ───────────────────────────────────────────────────────
+cask "ghostty"
+cask "font-jetbrains-mono-nerd-font" # required by the adopted ghostty config
+brew "starship"
+brew "chezmoi"
+
+# ── TUIs the aerospace keybindings launch ───────────────────────────────────
+brew "neovim"                        # SUPER+SHIFT+N
+brew "lazygit"                       # SUPER+SHIFT+G
+brew "lazydocker"                    # SUPER+SHIFT+D
+
+# ── Shell ───────────────────────────────────────────────────────────────────
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "bat"
+brew "htop"
+brew "jq"
+brew "httpie"
+brew "telnet"
+
+# ── Runtimes (pyenv + fnm; deliberately NOT mise — see README) ──────────────
+brew "fnm"
+brew "pyenv"
+brew "python@3.11"
+brew "uv"
+
+# ── Git ─────────────────────────────────────────────────────────────────────
+brew "git"
+brew "git-lfs"
+
+# ── Containers ──────────────────────────────────────────────────────────────
+brew "docker"
+brew "docker-compose"
+brew "podman"
+
+# ── Media / misc ────────────────────────────────────────────────────────────
+brew "ffmpeg"
+brew "ollama"
+brew "emacs"
+brew "ical-buddy"
+brew "openvino"
+brew "grpc"
+brew "libmagic"
+brew "gdbm"
+brew "openssl@3.0"
+brew "tcl-tk"
+brew "unixodbc"
+
+# ── Fonts ───────────────────────────────────────────────────────────────────
+cask "font-iosevka"
+cask "font-monaspace"
+cask "font-ia-writer-duospace"
+cask "font-victor-mono-nerd-font"
+
+# ── GUI ─────────────────────────────────────────────────────────────────────
+cask "1password"
+cask "1password-cli"
+cask "visual-studio-code"
+cask "claude"
+cask "claude-code"
+cask "codexbar"
+cask "copilot-cli"
+cask "spotify"
+cask "whatsapp"
+cask "bruno"
+cask "postman"
+cask "drawio"
+cask "miro"
+cask "tablepro"
+cask "mongodb-compass"
+cask "gcloud-cli"
+{{ if .work }}
+# ── Cegeka ──────────────────────────────────────────────────────────────────
+brew "azure-cli"
+brew "openshift-cli"
+brew "helm"
+brew "glab"
+brew "mysql-client"
+cask "azure-data-studio"
+{{- end }}
+
+# ── Omarchy ships these too. Uncomment what you want; none are required by
+#    any config in this repo.
+# brew "tmux"
+# brew "fzf"
+# brew "zoxide"
+# brew "ripgrep"
+# brew "fd"
+# brew "eza"
+# brew "git-delta"
+# brew "btop"
+# brew "gum"
+# brew "tlrc"
+# brew "imagemagick"
+# brew "tesseract"
+# cask "obsidian"          # already installed outside brew
+# cask "google-chrome"     # already installed outside brew
+# cask "shottr"
+# cask "localsend"
+# cask "vlc"
+#
+# Deliberately NOT included, they conflict with what you already run:
+#   brew "mise"    -> you use pyenv + fnm
+#   brew "colima"  -> you run Docker Desktop
