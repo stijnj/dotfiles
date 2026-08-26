@@ -1,0 +1,25 @@
+# Repo furniture - must never be written into $HOME
+README.md
+.github/
+.DS_Store
+
+# ~/.claude is mostly runtime state. We manage settings.json, statusline.sh and
+# skills/ explicitly; everything else below is machine-local and must stay out.
+.claude/backups/
+.claude/cache/
+.claude/daemon/
+.claude/debug/
+.claude/file-history/
+.claude/history.jsonl
+.claude/jobs/
+.claude/paste-cache/
+.claude/plans/
+.claude/plugins/
+.claude/projects/
+.claude/session-env/
+.claude/sessions/
+.claude/shell-snapshots/
+.claude/tasks/
+.claude/telemetry/
+.claude/*.json
+.claude/*.log

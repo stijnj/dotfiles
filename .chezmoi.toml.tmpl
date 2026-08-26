@@ -1,0 +1,12 @@
+{{- /* Machine identity comes from this prompt, never from hostname sniffing. */ -}}
+{{- $work := promptBoolOnce . "work" "Is this a work machine (Cegeka)" -}}
+{{- $workEmail := promptStringOnce . "workEmail" "Work git email" "stijn.janssen@cegeka.com" -}}
+{{- $personalEmail := promptStringOnce . "personalEmail" "Personal git email" "stijn@hexacode.be" -}}
+
+[data]
+    work = {{ $work }}
+    workEmail = {{ $workEmail | quote }}
+    personalEmail = {{ $personalEmail | quote }}
+
+[diff]
+    exclude = ["scripts"]
