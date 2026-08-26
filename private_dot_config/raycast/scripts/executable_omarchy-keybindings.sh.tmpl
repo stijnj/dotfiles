@@ -2,9 +2,10 @@
 # Omarchy's SUPER+K, ported. A static sheet.
 #
 # It used to parse ~/.aerospace.toml so it could not drift. AeroSpace is gone
-# and there is no longer a single file that holds the whole keymap: tiling is
-# macOS's, the app keys are Karabiner's, the rest is Raycast's. So this is
-# maintained by hand -- if you change a binding, change it here too.
+# and there is no longer a single file that holds the whole keymap: the app
+# keys are Karabiner's, window management and the rest are Raycast's and live
+# in Raycast's own database. So this is maintained by hand -- if you change a
+# binding, change it here too.
 #
 # Install: Raycast › Extensions › Script Commands › Add Directories
 #          -> point at this folder. Then give it hotkey Caps + K.
@@ -19,14 +20,15 @@ cat <<'EOF'
 
   SUPER = Caps Lock (⌘⌃⌥).  Tap Caps alone for Escape.
 
-  TILING — macOS native, fractional (adapts to whatever screen you're on)
+  WINDOWS — Raycast Window Management, fractional (adapts to the screen
+  you're on). Bound in Raycast's own UI; these are NOT in the dotfiles repo.
     SUPER+←  /  SUPER+→        Left half / right half
     SUPER+↑  /  SUPER+↓        Top half / bottom half
-    SUPER+SHIFT+←  /  +→       Arrange two windows: this one left / right
-    SUPER+F                    Fill screen
-    SUPER+C                    Centre
-    SUPER+R                    Restore previous size
-    drag to a screen edge      Tile there (incl. the top edge)
+    SUPER+SHIFT+←  /  +→       Move to previous / next display
+    SUPER+F                    Maximize
+    SUPER+C                    Center
+    SUPER+R                    Restore
+    drag to a screen edge      macOS native tiling, still on (incl. top edge)
 
   APPLICATIONS
     SUPER+ENTER                Ghostty          (new window)

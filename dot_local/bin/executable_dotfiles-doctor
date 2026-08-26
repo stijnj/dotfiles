@@ -33,10 +33,10 @@ if [ -f "$_kb" ] && grep -q 'Escape when tapped alone' "$_kb" 2>/dev/null; then
 else
   bad "Caps Lock → Super rule missing from karabiner.json"
 fi
-if [ -f "$_kb" ] && grep -q 'macOS native tiling' "$_kb" 2>/dev/null; then
-  ok "tiling rule present in karabiner.json"
+if [ -f "$_kb" ] && grep -qi 'tiling' "$_kb" 2>/dev/null; then
+  bad "karabiner.json has a tiling rule — Raycast owns those keys now, both will fire"
 else
-  bad "tiling rule missing from karabiner.json — run: chezmoi apply"
+  ok "no tiling rule in karabiner.json (Raycast owns window management)"
 fi
 if [ -f "$_kb" ] && grep -q 'launch applications' "$_kb" 2>/dev/null; then
   ok "app-launch rule present in karabiner.json"
@@ -96,7 +96,7 @@ else
 fi
 
 echo
-echo "macOS tiling settings"
+echo "macOS tiling settings (edge-drag only; the keys are Raycast's)"
 for _k in EnableTilingByEdgeDrag EnableTopTilingByEdgeDrag EnableTilingOptionAccelerator; do
   [ "$(defaults read com.apple.WindowManager "$_k" 2>/dev/null)" = "1" ] \
     && ok "$_k on" || bad "$_k not set — run: chezmoi apply"

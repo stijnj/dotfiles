@@ -25,7 +25,18 @@ cat <<'TXT'
      Clipboard history-> Caps + V
      Leave ⌘Space on Spotlight so corporate search still works.
      Script Commands  -> Add Directory -> ~/.config/raycast/scripts
+     (press Shift-Cmd-G in the picker; .config is hidden)
      Give "Keybindings" the hotkey Caps + K.
+
+     Window Management -- the whole window keymap. Raycast stores hotkeys
+     in its own database with no export, so this cannot be scripted and
+     must be redone on every machine:
+         Left Half / Right Half        -> Super + Left / Right
+         Top Half / Bottom Half        -> Super + Up / Down
+         Previous / Next Display       -> Super + Shift + Left / Right
+         Maximize                      -> Super + F
+         Center                        -> Super + C
+         Restore                       -> Super + R
 
   4. Reduce Motion
      System Settings > Accessibility > Display > Reduce Motion: OFF

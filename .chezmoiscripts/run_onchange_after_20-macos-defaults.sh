@@ -8,7 +8,7 @@
 #
 # Section 2 was added deliberately and was NOT previously set. These are the
 # ones that change how the machine feels. It used to exist for AeroSpace;
-# tiling is macOS native now, so the tiling keys are Apple's own.
+# window management is Raycast's now, and only drag-to-edge tiling is Apple's.
 set -euo pipefail
 
 echo "macos: applying defaults"
@@ -30,10 +30,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 # ── 2. Window management, key repeat, motion ────────────────────────────────
-# Tiling is macOS native, driven through Karabiner. No third-party window
-# manager -- see docs/rejected/aerospace-workspace-assignments.md.
+# No third-party window manager -- see docs/rejected/. Window keys belong to
+# Raycast; these keys only govern macOS's own drag-to-edge tiling, which is
+# independent of any hotkey and still worth having on.
 
-# Native tiling behaviour.
+# Native drag-to-edge tiling behaviour.
 defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
 defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool true
 defaults write com.apple.WindowManager EnableTopTilingByEdgeDrag -bool true

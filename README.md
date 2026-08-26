@@ -54,8 +54,23 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
       assignments are recorded in `docs/rejected/`.
 - [ ] **Raycast hotkeys** — main hotkey to Caps+Space (`⌘⌃⌥Space`), clipboard
       history to Caps+V. Leave `⌘Space` on Spotlight so corporate search still
-      works. Add `~/.config/raycast/scripts` under Script Commands and give
-      "Keybindings" the hotkey Caps+K.
+      works. Add `~/.config/raycast/scripts` under Script Commands (`⇧⌘G` in the
+      file picker — `.config` is hidden) and give "Keybindings" the hotkey Caps+K.
+- [ ] **Raycast Window Management** — the whole window keymap. Raycast stores
+      hotkeys in its own database with no supported export, so this cannot be
+      scripted or committed and must be redone on every machine. Raycast
+      Settings › Extensions › Window Management, then record each hotkey:
+
+      | Command | Hotkey |
+      |---|---|
+      | Left Half / Right Half | `Super ←` / `Super →` |
+      | Top Half / Bottom Half | `Super ↑` / `Super ↓` |
+      | Previous Display / Next Display | `Super ⇧ ←` / `Super ⇧ →` |
+      | Maximize | `Super F` |
+      | Center | `Super C` |
+      | Restore | `Super R` |
+
+      Karabiner must not bind these — `dotfiles-doctor` fails if it does.
 - [ ] **Reduce Motion** — **System Settings › Accessibility › Display › Reduce
       Motion: OFF**. It was only ever on to hide AeroSpace's workspace-switch
       animation. The apply script attempts to turn it off, but the domain is
@@ -91,12 +106,19 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
 - **Git identity by remote, not path.** `~/Developer` is a flat mix of Cegeka
   GitLab and GitHub checkouts. Three `hasconfig` patterns are needed because
   the remotes come in three URL shapes.
-- **No window manager.** AeroSpace was removed: the tree model didn't match how
-  I think about windows and there was too much vocabulary to learn. Tiling is
-  macOS's own, so layouts are fractional ("left half of whatever screen this
-  is") and survive docking and undocking, which saved pixel coordinates do not.
-  What that costs — workspaces, auto-placement, `close`, resize keys, monitor
-  focus — is written down in `docs/rejected/`, not replaced.
+- **No window manager; Raycast does the window keys.** AeroSpace was removed:
+  the tree model didn't match how I think about windows and there was too much
+  vocabulary to learn. Raycast was already installed, and its positioning is
+  fractional ("left half of whatever screen this is"), so layouts survive
+  docking and undocking where saved pixel coordinates do not.
+  Cost, stated plainly: **the window keymap is no longer in this repo.** Raycast
+  keeps hotkeys in an internal database with no supported export, so it is a
+  manual step per machine — the one place this repo stops being the single
+  source of truth. Karabiner forwarding to macOS's own `⌃ globe` tiling
+  shortcuts was built and reverted (`8939b76`) rather than tested; if the
+  Raycast hotkeys ever become tiresome to re-enter, that commit is the way back.
+  What is simply gone — workspaces, auto-placement, `close`, resize keys — is
+  written down in `docs/rejected/`, not replaced.
 - **Karabiner rules are inlined into `karabiner.json.tmpl`**, not dropped into
   `assets/complex_modifications/`. The latter only makes a rule *available* and
   still needs enabling by hand on every machine. It is a template because five
