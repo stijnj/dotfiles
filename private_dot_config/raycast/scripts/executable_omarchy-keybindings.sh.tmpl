@@ -1,0 +1,73 @@
+#!/bin/bash
+# Omarchy's SUPER+K, ported. A static sheet.
+#
+# It used to parse ~/.aerospace.toml so it could not drift. AeroSpace is gone
+# and there is no longer a single file that holds the whole keymap: tiling is
+# macOS's, the app keys are Karabiner's, the rest is Raycast's. So this is
+# maintained by hand -- if you change a binding, change it here too.
+#
+# Install: Raycast › Extensions › Script Commands › Add Directories
+#          -> point at this folder. Then give it hotkey Caps + K.
+#
+# @raycast.schemaVersion 1
+# @raycast.title Keybindings
+# @raycast.mode fullOutput
+# @raycast.packageName Omakase
+# @raycast.icon ⌨️
+
+cat <<'EOF'
+
+  SUPER = Caps Lock (⌘⌃⌥).  Tap Caps alone for Escape.
+
+  TILING — macOS native, fractional (adapts to whatever screen you're on)
+    SUPER+←  /  SUPER+→        Left half / right half
+    SUPER+↑  /  SUPER+↓        Top half / bottom half
+    SUPER+SHIFT+←  /  +→       Arrange two windows: this one left / right
+    SUPER+F                    Fill screen
+    SUPER+C                    Centre
+    SUPER+R                    Restore previous size
+    drag to a screen edge      Tile there (incl. the top edge)
+
+  APPLICATIONS
+    SUPER+ENTER                Ghostty          (new window)
+    SUPER+SHIFT+ENTER          Edge             (new window)
+    SUPER+SHIFT+B              Edge
+    SUPER+SHIFT+F              Finder
+    SUPER+SHIFT+O              Obsidian
+    SUPER+SHIFT+M              Spotify
+    SUPER+SHIFT+A              Claude
+    SUPER+SHIFT+D              Ghostty → lazydocker
+    SUPER+SHIFT+G              Ghostty → lazygit
+    SUPER+SHIFT+/              1Password
+EOF
+{{ if .work }}
+cat <<'EOF'
+    SUPER+SHIFT+E              Outlook
+    SUPER+SHIFT+T              Teams
+    SUPER+SHIFT+C              Outlook Calendar *
+    SUPER+SHIFT+W              Confluence *
+    SUPER+SHIFT+J              Jira *
+
+    * webapps. Install as dock apps first (Safari → Share → Add to Dock),
+      naming each one exactly as above, or these three keys do nothing.
+EOF
+{{ end }}
+cat <<'EOF'
+
+  RAYCAST
+    SUPER+SPACE                Command menu
+    SUPER+SHIFT+SPACE          App search
+    SUPER+V                    Clipboard history (⌘V paste inside terminals)
+    SUPER+K                    This sheet
+    SUPER+S                    Capture
+    SUPER+X                    Extract text (OCR)
+    SUPER+P                    Colour picker
+    SUPER+ESC                  System menu
+
+  MACOS NATIVE
+    ⌘C / ⌘V / ⌘X               Copy / paste / cut, everywhere including terminals
+    ⌘TAB                       Cycle apps
+    ⌃⌘SPACE                    Emoji picker
+    ⌃←  /  ⌃→                  Previous / next Space
+
+EOF
