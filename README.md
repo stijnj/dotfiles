@@ -40,15 +40,25 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
       **System Settings › General › Login Items & Extensions › Driver Extensions**.
       The Caps Lock → Super rule is already in `karabiner.json` — you do *not*
       need to add it from the UI.
-- [ ] **AeroSpace Accessibility** — launch it and grant Accessibility under
-      **System Settings › Privacy & Security › Accessibility**.
-      Verify with `aerospace list-workspaces --all`.
+- [ ] **Webapp dock apps** *(work machines)* — `SUPER+SHIFT+C`, `SUPER+SHIFT+W`
+      and `SUPER+SHIFT+J` call `open -a "Outlook Calendar"`, `"Confluence"` and
+      `"Jira"`. None of those resolve until the sites are installed as dock apps:
+      open each in Safari, **Share › Add to Dock**, and name it *exactly* as
+      above. Until then those three keys do nothing. The other twelve app keys
+      resolve out of the box.
+- [ ] **Mission Control spaces** *(optional, not set up)* — there are no
+      workspaces any more; macOS tiling has no such concept. If you want
+      something like them: **System Settings › Keyboard › Keyboard Shortcuts ›
+      Mission Control** to bind `⌃1`..`⌃9`, then **Dock › right-click an app ›
+      Options › Assign To** to pin apps to a space. Undecided — the old
+      assignments are recorded in `docs/rejected/`.
 - [ ] **Raycast hotkeys** — main hotkey to Caps+Space (`⌘⌃⌥Space`), clipboard
       history to Caps+V. Leave `⌘Space` on Spotlight so corporate search still
       works. Add `~/.config/raycast/scripts` under Script Commands and give
       "Keybindings" the hotkey Caps+K.
 - [ ] **Reduce Motion** — **System Settings › Accessibility › Display › Reduce
-      Motion: ON**. The apply script attempts this, but the domain is
+      Motion: OFF**. It was only ever on to hide AeroSpace's workspace-switch
+      animation. The apply script attempts to turn it off, but the domain is
       TCC-protected and the write can fail silently.
 - [ ] **npm tokens** — create the 1Password item that `~/.npmrc` reads:
       ```
@@ -66,8 +76,8 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
 | `.chezmoiscripts/` | Homebrew, macOS defaults, VS Code extensions, the manual checklist |
 | `dot_zshrc.tmpl` | zsh + oh-my-zsh + starship |
 | `dot_gitconfig.tmpl` | Identity split by remote URL |
-| `dot_aerospace.toml.tmpl` | 64 bindings work / 59 personal |
-| `private_dot_config/` | ghostty, karabiner, starship, git, raycast |
+| `private_dot_config/` | ghostty, karabiner (Super key + app launchers + tiling), starship, git, raycast |
+| `docs/rejected/` | Things deliberately removed, kept as a record — not config |
 | `dot_claude/` | Claude Code settings, statusline, skills |
 | `dot_local/bin/` | `dotfiles-doctor` |
 
@@ -81,16 +91,24 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
 - **Git identity by remote, not path.** `~/Developer` is a flat mix of Cegeka
   GitLab and GitHub checkouts. Three `hasconfig` patterns are needed because
   the remotes come in three URL shapes.
-- **Karabiner rules are inlined into `karabiner.json`**, not dropped into
+- **No window manager.** AeroSpace was removed: the tree model didn't match how
+  I think about windows and there was too much vocabulary to learn. Tiling is
+  macOS's own, so layouts are fractional ("left half of whatever screen this
+  is") and survive docking and undocking, which saved pixel coordinates do not.
+  What that costs — workspaces, auto-placement, `close`, resize keys, monitor
+  focus — is written down in `docs/rejected/`, not replaced.
+- **Karabiner rules are inlined into `karabiner.json.tmpl`**, not dropped into
   `assets/complex_modifications/`. The latter only makes a rule *available* and
-  still needs enabling by hand on every machine. Cost: Karabiner rewrites this
-  file when you change settings in its UI, so `chezmoi diff` will occasionally
-  show drift.
+  still needs enabling by hand on every machine. It is a template because five
+  app-launch keys are work-only. Cost: Karabiner rewrites this file when you
+  change settings in its UI, so `chezmoi diff` will occasionally show drift —
+  and now re-adopting that drift means hand-merging it back into the template
+  rather than `chezmoi add`.
 - **No mise, no colima**, though Omarchy ships both — they would collide with
   pyenv/fnm and Docker Desktop. Listed commented-out in the Brewfile.
 - **`.macos` was discarded, not migrated.** 150 of its 175 keys read UNSET on
   the work Mac: it had never been applied. The replacement script encodes the
-  9 settings actually in use plus 11 added for AeroSpace.
+  9 settings actually in use plus 15 added deliberately.
 
 ## Secrets
 
