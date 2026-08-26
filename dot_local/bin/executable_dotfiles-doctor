@@ -8,7 +8,7 @@ bad()  { printf '  \033[31m✗\033[0m %s\n' "$1"; fail=$((fail+1)); }
 
 echo
 echo "Binaries"
-for b in chezmoi starship aerospace op brew git fnm pyenv; do
+for b in chezmoi starship op brew git fnm pyenv; do
   command -v "$b" >/dev/null 2>&1 && ok "$b on PATH" || bad "$b missing"
 done
 
@@ -16,7 +16,6 @@ echo
 echo "Applications"
 [ -d "/Applications/Karabiner-Elements.app" ] && ok "Karabiner-Elements installed" \
   || bad "Karabiner-Elements missing (brew install --cask karabiner-elements, needs sudo)"
-[ -d "/Applications/AeroSpace.app" ] && ok "AeroSpace installed" || bad "AeroSpace missing"
 [ -d "/Applications/Raycast.app" ] && ok "Raycast installed" || bad "Raycast missing"
 [ -d "/Applications/Ghostty.app" ] && ok "Ghostty installed" || bad "Ghostty missing"
 
@@ -28,26 +27,41 @@ else
   bad "virtual HID daemon not running — approve the driver extension in"
   echo "      System Settings > General > Login Items & Extensions > Driver Extensions"
 fi
-if [ -f "$HOME/.config/karabiner/karabiner.json" ] \
-   && grep -q 'Escape when tapped alone' "$HOME/.config/karabiner/karabiner.json" 2>/dev/null; then
+_kb="$HOME/.config/karabiner/karabiner.json"
+if [ -f "$_kb" ] && grep -q 'Escape when tapped alone' "$_kb" 2>/dev/null; then
   ok "Caps Lock → Super rule present in karabiner.json"
 else
   bad "Caps Lock → Super rule missing from karabiner.json"
 fi
+if [ -f "$_kb" ] && grep -q 'macOS native tiling' "$_kb" 2>/dev/null; then
+  ok "tiling rule present in karabiner.json"
+else
+  bad "tiling rule missing from karabiner.json — run: chezmoi apply"
+fi
+if [ -f "$_kb" ] && grep -q 'launch applications' "$_kb" 2>/dev/null; then
+  ok "app-launch rule present in karabiner.json"
+else
+  bad "app-launch rule missing from karabiner.json — run: chezmoi apply"
+fi
 
 echo
-echo "AeroSpace"
-if pgrep -q AeroSpace 2>/dev/null; then
-  ok "AeroSpace running"
-  if aerospace list-workspaces --all >/dev/null 2>&1; then
-    ok "AeroSpace responding (Accessibility granted)"
-  else
-    bad "AeroSpace not responding — grant Accessibility in System Settings > Privacy & Security"
-  fi
+echo "Window manager"
+# There is deliberately none: tiling is macOS native, driven through Karabiner.
+# This check fails if one reappears, because a third-party WM will fight the
+# native tiling shortcuts for the same keys. See docs/rejected/.
+_wm=""
+for _app in AeroSpace yabai Amethyst Rectangle "Rectangle Pro" Moom Magnet Loop; do
+  [ -d "/Applications/$_app.app" ] && _wm="$_wm $_app"
+done
+for _bin in aerospace yabai; do
+  command -v "$_bin" >/dev/null 2>&1 && _wm="$_wm $_bin(bin)"
+done
+[ -f "$HOME/.aerospace.toml" ] && _wm="$_wm ~/.aerospace.toml"
+if [ -z "$_wm" ]; then
+  ok "no window manager installed"
 else
-  bad "AeroSpace not running"
+  bad "window manager present:$_wm — native tiling will fight it for the same keys"
 fi
-[ -f "$HOME/.aerospace.toml" ] && ok "~/.aerospace.toml present" || bad "~/.aerospace.toml missing"
 
 echo
 echo "1Password"
@@ -82,12 +96,49 @@ else
 fi
 
 echo
-echo "macOS settings AeroSpace depends on"
+echo "macOS tiling settings"
+for _k in EnableTilingByEdgeDrag EnableTopTilingByEdgeDrag EnableTilingOptionAccelerator; do
+  [ "$(defaults read com.apple.WindowManager "$_k" 2>/dev/null)" = "1" ] \
+    && ok "$_k on" || bad "$_k not set — run: chezmoi apply"
+done
+[ "$(defaults read com.apple.WindowManager EnableTiledWindowMargins 2>/dev/null)" = "0" ] \
+  && ok "tiled window margins off" || bad "tiled window margins not off"
 [ "$(defaults read com.apple.dock mru-spaces 2>/dev/null)" = "0" ] \
   && ok "Spaces do not rearrange (mru-spaces=false)" || bad "mru-spaces is not false"
-[ "$(defaults read com.apple.universalaccess reduceMotion 2>/dev/null)" = "1" ] \
-  && ok "Reduce Motion on" || bad "Reduce Motion off — Settings > Accessibility > Display"
 
+echo
+echo "Application launch targets"
+# Every app the Karabiner launch rule calls must resolve, or the key does
+# nothing. Read out of the live file rather than hardcoded, so this follows
+# work/personal and any binding you add without needing an edit here.
+_apps_tmp=$(mktemp)
+if [ -f "$_kb" ]; then
+  awk '
+    /shell_command/ {
+      l = $0
+      gsub(/\\"/, "", l)
+      sub(/.*\/usr\/bin\/open /, "", l)
+      sub(/ --args.*/, "", l)
+      sub(/"[^"]*$/, "", l)
+      sub(/^-na /, "", l)
+      sub(/^-a /, "", l)
+      gsub(/^[ \t]+|[ \t]+$/, "", l)
+      if (l != "") print l
+    }
+  ' "$_kb" | sort -u > "$_apps_tmp"
+  # Fed by redirect, not a pipe: a `while` on the right of a pipe runs in a
+  # subshell and the pass/fail counters would be lost with it.
+  while IFS= read -r _app; do
+    if osascript -e "id of app \"$_app\"" >/dev/null 2>&1; then
+      ok "open -a \"$_app\" resolves"
+    else
+      bad "open -a \"$_app\" does NOT resolve — install it (webapps: Safari > Share > Add to Dock)"
+    fi
+  done < "$_apps_tmp"
+  rm -f "$_apps_tmp"
+else
+  bad "karabiner.json missing — cannot check launch targets"
+fi
 echo
 printf '  %d passed, %d failed\n\n' "$pass" "$fail"
 [ "$fail" -eq 0 ]
