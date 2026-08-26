@@ -21,5 +21,10 @@ README.md
 .claude/shell-snapshots/
 .claude/tasks/
 .claude/telemetry/
-.claude/*.json
+.claude/.last-cleanup
+.claude/claude.json
+.claude/mcp-needs-auth-cache.json
+.claude/stats-cache.json
+.claude/daemon-auth-status.json
+.claude/daemon-auth-cooldown
 .claude/*.log

@@ -8,7 +8,17 @@
 # Work repos are identified by their REMOTE, not their path. ~/Developer is a
 # flat mix of Cegeka GitLab and GitHub checkouts, so a `gitdir:` rule cannot
 # express the split without reorganising 43 directories. Needs git >= 2.36.
-[includeIf "hasconfig:remote.*.url:**gitlab.cegeka.*/**"]
+#
+# Three patterns, because your Cegeka remotes come in three shapes and git's
+# wildmatch treats each differently (all verified):
+#   https://gitlab.cegeka.com/g/p.git        -> pattern 1
+#   ssh://git@gitlab.cegeka.be:8022/g/p.git  -> pattern 2
+#   git@gitlab.cegeka.com:g/p.git            -> pattern 3
+[includeIf "hasconfig:remote.*.url:**/gitlab.cegeka.*/**"]
+	path = ~/.config/git/cegeka
+[includeIf "hasconfig:remote.*.url:**/git@gitlab.cegeka.*/**"]
+	path = ~/.config/git/cegeka
+[includeIf "hasconfig:remote.*.url:git@gitlab.cegeka.*:**"]
 	path = ~/.config/git/cegeka
 
 [gpg]
