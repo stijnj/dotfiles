@@ -13,7 +13,23 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-echo "brew: applying Brewfile"
-brew bundle --file=- <<'BREWFILE'
+# --no-upgrade: install what is MISSING, never upgrade what is already there.
+# Without it, every `chezmoi apply` turns into a mass upgrade of docker,
+# ffmpeg, emacs, openvino, Raycast... which is a ten-minute download, not a
+# dotfiles operation. Upgrades stay a deliberate `brew upgrade`.
+echo "brew: applying Brewfile (install-only)"
+# Some casks run a pkg installer that needs an interactive sudo (karabiner-
+# elements, and adopting a hand-installed Raycast). Those fail in an
+# unattended apply. Warn and carry on rather than aborting the whole run --
+# `dotfiles-doctor` is what reports the real state.
+if ! brew bundle --no-upgrade --file=- <<'BREWFILE'
 {{ template "Brewfile" . }}
 BREWFILE
+then
+  echo
+  echo "brew: some packages did not install (see above)."
+  echo "      Anything needing sudo must be run by hand, e.g.:"
+  echo "        brew install --cask karabiner-elements"
+  echo "        brew install --cask --adopt raycast"
+  echo "      Then re-check with: dotfiles-doctor"
+fi

@@ -67,10 +67,18 @@ if git config --get commit.gpgsign 2>/dev/null | grep -q true; then ok "commit s
 
 echo
 echo "Homebrew bundle"
-if brew bundle check --file=<(chezmoi execute-template '{{ template "Brewfile" . }}') >/dev/null 2>&1; then
+# --no-upgrade so a merely-outdated package is not reported as a failure;
+# this checks what is MISSING, which is what actually breaks the setup.
+_bf=$(mktemp)
+chezmoi execute-template '{{ template "Brewfile" . }}' > "$_bf"
+_missing=$(brew bundle check --no-upgrade --verbose --file="$_bf" 2>&1 | grep '^→' || true)
+rm -f "$_bf"
+if [ -z "$_missing" ]; then
   ok "Brewfile satisfied"
 else
-  bad "Brewfile not satisfied — run: chezmoi apply"
+  bad "Brewfile has missing packages:"
+  echo "$_missing" | sed 's/^/      /'
+  echo "      Anything needing sudo must be installed by hand."
 fi
 
 echo
