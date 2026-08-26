@@ -3,10 +3,8 @@
 # Captured from this machine on 2026-08-26, plus what the adopted Omarchy
 # configs actually require. Work-only tooling is gated behind .work.
 
-tap "nikitabobko/tap"
-
-# ── Window manager, Super key, launcher (Omarchy core) ──────────────────────
-cask "nikitabobko/tap/aerospace"
+# ── Super key + launcher ────────────────────────────────────────────────────
+# No window manager: tiling is macOS native, driven through Karabiner.
 cask "karabiner-elements"            # needs a driver extension approved by hand
 cask "raycast"
 
@@ -16,8 +14,8 @@ cask "font-jetbrains-mono-nerd-font" # required by the adopted ghostty config
 brew "starship"
 brew "chezmoi"
 
-# ── TUIs the aerospace keybindings launch ───────────────────────────────────
-brew "neovim"                        # SUPER+SHIFT+N
+# ── TUIs the Karabiner keybindings launch ───────────────────────────────────
+brew "neovim"
 brew "lazygit"                       # SUPER+SHIFT+G
 brew "lazydocker"                    # SUPER+SHIFT+D
 
