@@ -1,0 +1,15 @@
+#!/bin/bash
+# Installs the pinned VS Code extension set. Re-runs only when the list changes.
+# extensions hash: {{ include "private_dot_config/vscode-extensions.txt" | sha256sum }}
+set -euo pipefail
+
+command -v code >/dev/null 2>&1 || { echo "vscode: 'code' not on PATH, skipping"; exit 0; }
+
+installed="$(code --list-extensions | tr '[:upper:]' '[:lower:]' | sort)"
+while IFS= read -r ext; do
+  [[ -z "$ext" || "$ext" == \#* ]] && continue
+  if ! grep -qx "$(echo "$ext" | tr '[:upper:]' '[:lower:]')" <<<"$installed"; then
+    echo "vscode: installing $ext"
+    code --install-extension "$ext" --force >/dev/null
+  fi
+done < "$HOME/.config/vscode-extensions.txt"
