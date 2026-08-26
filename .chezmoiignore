@@ -1,6 +1,7 @@
 # Repo furniture - must never be written into $HOME
 README.md
 .github/
+docs/
 .DS_Store
 
 # ~/.claude is mostly runtime state. We manage settings.json, statusline.sh and
