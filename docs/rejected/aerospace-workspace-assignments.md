@@ -49,5 +49,6 @@ to. The nearest equivalent is Mission Control Spaces with per-app assignment
 `ctrl+1..9`, then Dock → right-click app → Options → Assign To). That is
 listed as optional in the README and has not been set up.
 
-The app *launch* bindings did carry over — they are `shell_command`
-manipulators in `karabiner.json.tmpl` now, on the same keys.
+The app *launch* bindings did carry over as `shell_command` manipulators in
+`karabiner.json`, on the same keys — but they were removed in turn on
+2026-08-27. See `karabiner-super-rules.md` in this directory.

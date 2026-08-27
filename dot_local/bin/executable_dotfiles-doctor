@@ -38,11 +38,6 @@ if [ -f "$_kb" ] && grep -qi 'tiling' "$_kb" 2>/dev/null; then
 else
   ok "no tiling rule in karabiner.json (Raycast owns window management)"
 fi
-if [ -f "$_kb" ] && grep -q 'launch applications' "$_kb" 2>/dev/null; then
-  ok "app-launch rule present in karabiner.json"
-else
-  bad "app-launch rule missing from karabiner.json — run: chezmoi apply"
-fi
 
 echo
 echo "Window manager"
@@ -106,11 +101,11 @@ done
 [ "$(defaults read com.apple.dock mru-spaces 2>/dev/null)" = "0" ] \
   && ok "Spaces do not rearrange (mru-spaces=false)" || bad "mru-spaces is not false"
 
-echo
-echo "Application launch targets"
-# Every app the Karabiner launch rule calls must resolve, or the key does
+# Every app a Karabiner launch rule calls must resolve, or the key does
 # nothing. Read out of the live file rather than hardcoded, so this follows
-# work/personal and any binding you add without needing an edit here.
+# any binding you add without needing an edit here. There are no launch rules
+# as of 2026-08-27 (docs/rejected/karabiner-super-rules.md), so this section
+# prints nothing unless one comes back.
 _apps_tmp=$(mktemp)
 if [ -f "$_kb" ]; then
   awk '
@@ -126,6 +121,7 @@ if [ -f "$_kb" ]; then
       if (l != "") print l
     }
   ' "$_kb" | sort -u > "$_apps_tmp"
+  [ -s "$_apps_tmp" ] && { echo; echo "Application launch targets"; }
   # Fed by redirect, not a pipe: a `while` on the right of a pipe runs in a
   # subshell and the pass/fail counters would be lost with it.
   while IFS= read -r _app; do

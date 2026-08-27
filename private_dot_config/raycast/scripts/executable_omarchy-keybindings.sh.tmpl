@@ -30,36 +30,10 @@ cat <<'EOF'
     SUPER+R                    Restore
     drag to a screen edge      macOS native tiling, still on (incl. top edge)
 
-  APPLICATIONS
-    SUPER+ENTER                Ghostty          (new window)
-    SUPER+SHIFT+ENTER          Edge             (new window)
-    SUPER+SHIFT+B              Edge
-    SUPER+SHIFT+F              Finder
-    SUPER+SHIFT+O              Obsidian
-    SUPER+SHIFT+M              Spotify
-    SUPER+SHIFT+A              Claude
-    SUPER+SHIFT+D              Ghostty → lazydocker
-    SUPER+SHIFT+G              Ghostty → lazygit
-    SUPER+SHIFT+/              1Password
-EOF
-{{ if .work }}
-cat <<'EOF'
-    SUPER+SHIFT+E              Outlook
-    SUPER+SHIFT+T              Teams
-    SUPER+SHIFT+C              Outlook Calendar *
-    SUPER+SHIFT+W              Confluence *
-    SUPER+SHIFT+J              Jira *
-
-    * webapps. Install as dock apps first (Safari → Share → Add to Dock),
-      naming each one exactly as above, or these three keys do nothing.
-EOF
-{{ end }}
-cat <<'EOF'
-
   RAYCAST
     SUPER+SPACE                Command menu
     SUPER+SHIFT+SPACE          App search
-    SUPER+V                    Clipboard history (⌘V paste inside terminals)
+    SUPER+V                    Clipboard history
     SUPER+K                    This sheet
     SUPER+S                    Capture
     SUPER+X                    Extract text (OCR)

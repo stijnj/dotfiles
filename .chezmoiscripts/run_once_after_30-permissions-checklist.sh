@@ -14,13 +14,7 @@ cat <<'TXT'
      The Caps Lock -> Super rule is already in karabiner.json; you do NOT
      need to add it from the UI.
 
-  2. Webapp dock apps (work machines)
-     SUPER+SHIFT+C / W / J call  open -a "Outlook Calendar" / "Confluence"
-     / "Jira".  Those names do not resolve until you install each site as
-     a dock app: open it in Safari, Share > Add to Dock, and name it
-     exactly as above. Until then those three keys do nothing.
-
-  3. Raycast hotkeys
+  2. Raycast hotkeys
      Main hotkey      -> Caps + Space  (⌘⌃⌥Space)
      Clipboard history-> Caps + V
      Leave ⌘Space on Spotlight so corporate search still works.
@@ -38,7 +32,7 @@ cat <<'TXT'
          Center                        -> Super + C
          Restore                       -> Super + R
 
-  4. Reduce Motion
+  3. Reduce Motion
      System Settings > Accessibility > Display > Reduce Motion: OFF
      (The apply script tries this, but the domain is TCC-protected.)
 
@@ -47,7 +41,7 @@ cat <<'TXT'
      > Keyboard Shortcuts > Mission Control, then pin apps with
      Dock > right-click app > Options > Assign To.
 
-  5. npm registry tokens
+  4. npm registry tokens
      Create the 1Password item the ~/.npmrc template reads:
          op item create --category="API Credential" --vault=Employee \
            --title="npm-registry-tokens" \

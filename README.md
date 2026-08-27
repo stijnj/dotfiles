@@ -40,12 +40,6 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
       **System Settings › General › Login Items & Extensions › Driver Extensions**.
       The Caps Lock → Super rule is already in `karabiner.json` — you do *not*
       need to add it from the UI.
-- [ ] **Webapp dock apps** *(work machines)* — `SUPER+SHIFT+C`, `SUPER+SHIFT+W`
-      and `SUPER+SHIFT+J` call `open -a "Outlook Calendar"`, `"Confluence"` and
-      `"Jira"`. None of those resolve until the sites are installed as dock apps:
-      open each in Safari, **Share › Add to Dock**, and name it *exactly* as
-      above. Until then those three keys do nothing. The other twelve app keys
-      resolve out of the box.
 - [ ] **Mission Control spaces** *(optional, not set up)* — there are no
       workspaces any more; macOS tiling has no such concept. If you want
       something like them: **System Settings › Keyboard › Keyboard Shortcuts ›
@@ -91,7 +85,7 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
 | `.chezmoiscripts/` | Homebrew, macOS defaults, VS Code extensions, the manual checklist |
 | `dot_zshrc.tmpl` | zsh + oh-my-zsh + starship |
 | `dot_gitconfig.tmpl` | Identity split by remote URL |
-| `private_dot_config/` | ghostty, karabiner (Super key + app launchers + tiling), starship, git, raycast |
+| `private_dot_config/` | ghostty, karabiner (Caps Lock → Super, nothing else), starship, git, raycast |
 | `docs/rejected/` | Things deliberately removed, kept as a record — not config |
 | `dot_claude/` | Claude Code settings, statusline, skills |
 | `dot_local/bin/` | `dotfiles-doctor` |
@@ -119,13 +113,15 @@ Nothing below can be scripted. `dotfiles-doctor` reports each one.
   Raycast hotkeys ever become tiresome to re-enter, that commit is the way back.
   What is simply gone — workspaces, auto-placement, `close`, resize keys — is
   written down in `docs/rejected/`, not replaced.
-- **Karabiner rules are inlined into `karabiner.json.tmpl`**, not dropped into
+- **The Karabiner rule is inlined into `karabiner.json`**, not dropped into
   `assets/complex_modifications/`. The latter only makes a rule *available* and
-  still needs enabling by hand on every machine. It is a template because five
-  app-launch keys are work-only. Cost: Karabiner rewrites this file when you
-  change settings in its UI, so `chezmoi diff` will occasionally show drift —
-  and now re-adopting that drift means hand-merging it back into the template
-  rather than `chezmoi add`.
+  still needs enabling by hand on every machine. Caps Lock → Super is now the
+  only rule; the app launchers and the terminal paste shim were removed
+  (`docs/rejected/karabiner-super-rules.md`), which emptied the `.work`
+  conditional, so this is plain JSON rather than a template. Cost: Karabiner
+  rewrites this file when you change settings in its UI, so `chezmoi diff` will
+  occasionally show drift — but `chezmoi re-add` now absorbs it, which it
+  refused to do while the file was a template.
 - **No mise, no colima**, though Omarchy ships both — they would collide with
   pyenv/fnm and Docker Desktop. Listed commented-out in the Brewfile.
 - **`.macos` was discarded, not migrated.** 150 of its 175 keys read UNSET on

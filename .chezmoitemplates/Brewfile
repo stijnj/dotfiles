@@ -16,8 +16,8 @@ brew "chezmoi"
 
 # ── TUIs the Karabiner keybindings launch ───────────────────────────────────
 brew "neovim"
-brew "lazygit"                       # SUPER+SHIFT+G
-brew "lazydocker"                    # SUPER+SHIFT+D
+brew "lazygit"
+brew "lazydocker"
 
 # ── Shell ───────────────────────────────────────────────────────────────────
 brew "zsh"
