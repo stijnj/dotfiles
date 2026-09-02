@@ -1,8 +1,6 @@
 # ~/.config/ghostty/config
-# Omarchy's Ghostty config, ported to macOS, with Omarchy's default theme
-# (Tokyo Night) written out as literal colours so it can't drift.
 
-# ── Theme: Tokyo Night (Omarchy default) ────────────────────────────────────
+# ── Theme ────────────────────────────────────
 theme = Catppuccin Macchiato
 
 # ── Font ────────────────────────────────────────────────────────────────────
@@ -30,11 +28,5 @@ shell-integration-features = no-cursor,ssh-env
 # composing accented characters, which you want on a Belgian layout.
 macos-option-as-alt = left
 macos-non-native-fullscreen = true
-
-# ── Keybinds (Omarchy parity) ───────────────────────────────────────────────
-keybind = shift+enter=csi:13;2u
-keybind = alt+shift+enter=csi:13;4u
-keybind = shift+insert=paste_from_clipboard
-keybind = ctrl+insert=copy_to_clipboard
 
 mouse-scroll-multiplier = 0.95

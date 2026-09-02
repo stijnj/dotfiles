@@ -4,7 +4,6 @@
 # configs actually require. Work-only tooling is gated behind .work.
 
 # ── Super key + launcher ────────────────────────────────────────────────────
-# No window manager: tiling is macOS native, driven through Karabiner.
 cask "karabiner-elements"            # needs a driver extension approved by hand
 cask "raycast"
 
@@ -13,11 +12,6 @@ cask "ghostty"
 cask "font-jetbrains-mono-nerd-font" # required by the adopted ghostty config
 brew "starship"
 brew "chezmoi"
-
-# ── TUIs the Karabiner keybindings launch ───────────────────────────────────
-brew "neovim"
-brew "lazygit"
-brew "lazydocker"
 
 # ── Shell ───────────────────────────────────────────────────────────────────
 brew "zsh"
@@ -48,7 +42,6 @@ brew "podman"
 brew "ffmpeg"
 brew "ollama"
 brew "emacs"
-brew "ical-buddy"
 brew "openvino"
 brew "grpc"
 brew "libmagic"
@@ -67,21 +60,18 @@ cask "font-victor-mono-nerd-font"
 cask "1password"
 cask "1password-cli"
 cask "visual-studio-code"
+cask "copilot-cli"
 cask "claude"
 cask "claude-code"
 cask "codexbar"
-cask "copilot-cli"
 cask "spotify"
-cask "whatsapp"
 cask "bruno"
-cask "postman"
-cask "drawio"
-cask "miro"
 cask "tablepro"
-cask "mongodb-compass"
-cask "gcloud-cli"
+cask "obsidian"
+cask "google-chrome"
 {{ if .work }}
 # ── Cegeka ──────────────────────────────────────────────────────────────────
+cask "mongodb-compass"
 brew "azure-cli"
 brew "openshift-cli"
 brew "helm"
@@ -89,27 +79,3 @@ brew "glab"
 brew "mysql-client"
 cask "azure-data-studio"
 {{- end }}
-
-# ── Omarchy ships these too. Uncomment what you want; none are required by
-#    any config in this repo.
-# brew "tmux"
-# brew "fzf"
-# brew "zoxide"
-# brew "ripgrep"
-# brew "fd"
-# brew "eza"
-# brew "git-delta"
-# brew "btop"
-# brew "gum"
-# brew "tlrc"
-# brew "imagemagick"
-# brew "tesseract"
-# cask "obsidian"          # already installed outside brew
-# cask "google-chrome"     # already installed outside brew
-# cask "shottr"
-# cask "localsend"
-# cask "vlc"
-#
-# Deliberately NOT included, they conflict with what you already run:
-#   brew "mise"    -> you use pyenv + fnm
-#   brew "colima"  -> you run Docker Desktop

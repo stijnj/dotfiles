@@ -21,7 +21,7 @@ template.
 
 A shim so `SUPER+V` sent plain `⌘V` inside terminal emulators, scoped by
 `frontmost_application_if` to Ghostty, Terminal.app, kitty and iTerm2. The
-description carried a warning that `SUPER+C` was *not* to be paired with it,
+description carried a warning that `SUPER+C` was _not_ to be paired with it,
 because Raycast owns that key for Center.
 
 ```json
@@ -40,9 +40,11 @@ because Raycast owns that key for Center.
     ],
     "from": {
         "key_code": "v",
-        "modifiers": { "mandatory": ["left_command", "left_control", "left_option"] }
+        "modifiers": {
+            "mandatory": ["left_command", "left_control", "left_option"]
+        }
     },
-    "to": [ { "key_code": "v", "modifiers": ["left_command"] } ]
+    "to": [{ "key_code": "v", "modifiers": ["left_command"] }]
 }
 ```
 
@@ -52,28 +54,28 @@ because Raycast owns that key for Center.
 bindings when AeroSpace was dropped. `open` was spelled absolutely because
 Karabiner runs `shell_command` with a minimal environment, not a login shell.
 
-| Keys | Command |
-|---|---|
-| `SUPER + Enter` | `/usr/bin/open -na Ghostty` |
-| `SUPER+SHIFT + Enter` | `/usr/bin/open -na "Edge"` |
-| `SUPER+SHIFT + B` | `/usr/bin/open -na "Edge"` |
-| `SUPER+SHIFT + F` | `/usr/bin/open -a Finder` |
-| `SUPER+SHIFT + O` | `/usr/bin/open -a Obsidian` |
-| `SUPER+SHIFT + M` | `/usr/bin/open -a Spotify` |
-| `SUPER+SHIFT + D` | `/usr/bin/open -na Ghostty --args -e lazydocker` |
-| `SUPER+SHIFT + G` | `/usr/bin/open -na Ghostty --args -e lazygit` |
-| `SUPER+SHIFT + /` | `/usr/bin/open -a "1Password"` |
-| `SUPER+SHIFT + A` | `/usr/bin/open -a "Claude"` |
+| Keys                  | Command                                          |
+| --------------------- | ------------------------------------------------ |
+| `SUPER + Enter`       | `/usr/bin/open -na Ghostty`                      |
+| `SUPER+SHIFT + Enter` | `/usr/bin/open -na "Edge"`                       |
+| `SUPER+SHIFT + B`     | `/usr/bin/open -na "Edge"`                       |
+| `SUPER+SHIFT + F`     | `/usr/bin/open -a Finder`                        |
+| `SUPER+SHIFT + O`     | `/usr/bin/open -a Obsidian`                      |
+| `SUPER+SHIFT + M`     | `/usr/bin/open -a Spotify`                       |
+| `SUPER+SHIFT + D`     | `/usr/bin/open -na Ghostty --args -e lazydocker` |
+| `SUPER+SHIFT + G`     | `/usr/bin/open -na Ghostty --args -e lazygit`    |
+| `SUPER+SHIFT + /`     | `/usr/bin/open -a "1Password"`                   |
+| `SUPER+SHIFT + A`     | `/usr/bin/open -a "Claude"`                      |
 
 Work-only, behind `{{ if .work }}`:
 
-| Keys | Command |
-|---|---|
+| Keys              | Command                                |
+| ----------------- | -------------------------------------- |
 | `SUPER+SHIFT + E` | `/usr/bin/open -a "Microsoft Outlook"` |
-| `SUPER+SHIFT + C` | `/usr/bin/open -a "Outlook Calendar"` |
-| `SUPER+SHIFT + W` | `/usr/bin/open -a "Confluence"` |
-| `SUPER+SHIFT + J` | `/usr/bin/open -a "Jira"` |
-| `SUPER+SHIFT + T` | `/usr/bin/open -a "Microsoft Teams"` |
+| `SUPER+SHIFT + C` | `/usr/bin/open -a "Outlook Calendar"`  |
+| `SUPER+SHIFT + W` | `/usr/bin/open -a "Confluence"`        |
+| `SUPER+SHIFT + J` | `/usr/bin/open -a "Jira"`              |
+| `SUPER+SHIFT + T` | `/usr/bin/open -a "Microsoft Teams"`   |
 
 The last three needed Safari **Share › Add to Dock** webapps named exactly
 `Outlook Calendar`, `Confluence` and `Jira` before they resolved. That manual

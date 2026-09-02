@@ -22,6 +22,7 @@ echo "brew: applying Brewfile (install-only)"
 # elements, and adopting a hand-installed Raycast). Those fail in an
 # unattended apply. Warn and carry on rather than aborting the whole run --
 # `dotfiles-doctor` is what reports the real state.
+brew trust steipete/tap 2>/dev/null || true
 if ! brew bundle --no-upgrade --file=- <<'BREWFILE'
 {{ template "Brewfile" . }}
 BREWFILE
