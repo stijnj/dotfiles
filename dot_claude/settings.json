@@ -4,5 +4,43 @@
     "command": "bash ~/.claude/statusline.sh"
   },
   "tui": "fullscreen",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: Cegeka appears as the work employer in this repo's README (work-machine gating, `gitlab.cegeka.*` remotes); this dotfiles repo itself is a personal checkout under the `stijnj` GitHub account",
+      "**Cloud provider(s)**: Google Cloud — `gcloud` is the third most-used command in shell history (178x); not otherwise configured in this repo",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public — the gh visibility query returned \"not queryable here\" for stijnj/dotfiles, so treat it as private and confirm before publishing",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password CLI (`op`, 4x in this project's transcripts) plus `ssh-add` for key loading",
+      "**Default / protected branches**: unknown — origin/HEAD is unset and rulesets/protected branches were not queryable via gh; treat the checked-out default branch of stijnj/dotfiles as unprotected-but-unconfirmed",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) — here https://github.com/stijnj/dotfiles.git; `git` (289x) and `glab` (10x) also appear in shell history, consistent with the README's mention of `gitlab.cegeka.*` remotes in other checkouts",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar — in this repo that especially covers chezmoi-templated dotfiles, 1Password-sourced values, and SSH keys",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: maintaining this chezmoi-managed dotfiles repo — machine config, Homebrew package lists, shell/prompt setup",
+      "**Trusted repo**: /Users/stijnj/dotfiles and its configured remote https://github.com/stijnj/dotfiles.git. When the repo's public/private visibility is given — by the Repository visibility entry or the user's own message — use it to scope what is OK to commit or push there: confidential material is fine in a private repo; in a public one, only that repo's own work is — and content ported, repointed, or first read from outside this session's repo is not its own work, whoever directed the port. Visibility scopes confidential material only: secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility (see Definitions).",
+      "**Org-specific CLIs**: `chezmoi` (dotfiles apply/diff/edit), `op` (1Password), `brew`, plus `acli` and `glab` seen in shell history for work tooling",
+      "**Routine under stijnj/ prefix**: read/write work in /Users/stijnj/dotfiles and its chezmoi source dir is routine for this session"
+    ],
+    "allow": [
+      "$defaults",
+      "Bash(chezmoi diff:*) and Bash(chezmoi status:*) in /Users/stijnj/dotfiles — read-only inspection of pending dotfile changes",
+      "Bash(brew list:*), Bash(brew info:*), Bash(brew outdated:*) — read-only package queries for the dotfiles Brewfile"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(chezmoi apply:*) and Bash(chezmoi init:*) — writes templated config over live files in $HOME outside the repo",
+      "Bash(op:*) writes (op item create/edit/delete, op document create) against the 1Password vault"
+    ]
+  }
 }
